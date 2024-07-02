@@ -68,6 +68,7 @@ class MainClass{
     // main Method
     public static void Main(string[] args){
 
+        // started setter
         Person p1 = new Person();
 
         p1.SetName("Ashik");
@@ -82,9 +83,12 @@ class MainClass{
 
         Console.WriteLine($"Another person name is {ap1.Name} and age is {ap1.Age}");
 
+        // setter End
 
+        // object creation for another class
+        Animal banor = new Animal("Monkey", "Gray", true);
 
-
+        banor.DisplayAminal();
        
     }
 
