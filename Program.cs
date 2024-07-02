@@ -4,37 +4,87 @@ using System.Security.Cryptography;
 
 
 class Person{
-    
-    public string name; //readable and writable
 
-    private int age; // not readable not writable
+    private string? name; //for making those nullable
+    private int? age; //for making those nullable
 
-    //we can make it readable and writable both 
-    // using setter function we can make it writable
-    // using getter function we can make it readble
 
-    public void Setter(int a){
-        age = a;
+    // traditional ways of setter and getter
+
+    public void SetName(string nam){
+        name = nam;
     }
 
-    public int Getter(){
-        return age;
+    public void SetAge(int agee){
+        age = agee;
+    }
+
+    public void DisplayInfo(){
+        Console.WriteLine($"Name is {name} and age is {age}");
     }
 
 
 }
 
+
+// Another person class to see the differet version of getter and setter
+class AnotherPerson{
+
+    private string name;
+    private int age;
+
+
+    // creating accessors
+
+    // getter
+    public string Name{
+        get{
+            return name;
+        }
+        set{
+            name = value;
+        }
+    }
+
+    public int Age{
+        get{
+            return age;
+        }
+        set{
+            if(value > 25){
+                age = value;
+            }
+            
+        }
+
+    }
+
+}
+
+
+
 class MainClass{
 
     // main Method
     public static void Main(string[] args){
-     
+
         Person p1 = new Person();
 
-        p1.name = "Ashik";
-        p1.Setter(29);
+        p1.SetName("Ashik");
+        p1.SetAge(39);
 
-        Console.WriteLine(p1.Getter());
+        p1.DisplayInfo();
+
+        // object for new AnotherPerson Class
+        AnotherPerson ap1 = new AnotherPerson();
+        ap1.Name = "Ashik";
+        ap1.Age = 22;
+
+        Console.WriteLine($"Another person name is {ap1.Name} and age is {ap1.Age}");
+
+
+
+
        
     }
 
